@@ -1,0 +1,10 @@
+syntax = "proto3";
+package api;
+
+message TimeRecord {
+    string id = 1;
+    int32 amount = 2;
+    int64 timestamp = 3;
+    string description = 4;
+}
+
