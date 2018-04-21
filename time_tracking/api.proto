@@ -6,6 +6,8 @@ message TimeRecord {
     int32 amount = 2; // in minutes
     int64 timestamp = 3;
     string description = 4;
+    string user_id = 5;
+    string project_id = 6;
 }
 
 message TimeRecords {
@@ -17,6 +19,8 @@ message DeleteRecordRequest {
 }
 
 message AllRecordsRequest {
+    string user_id = 1;
+    string project_id = 2;
 }
 
 service TimeTracking {
