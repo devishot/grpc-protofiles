@@ -19,8 +19,10 @@ message DeleteRecordRequest {
 }
 
 message AllRecordsRequest {
-    string user_id = 1;
-    string project_id = 2;
+    oneof find_by {
+        string user_id = 1;
+        string project_id = 2;
+    }
 }
 
 service TimeTracking {
