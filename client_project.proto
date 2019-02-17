@@ -1,0 +1,43 @@
+syntax = "proto3";
+package api;
+
+import "connection.proto";
+
+message ClientProject {
+    string id = 1;
+    int64  timestamp = 2;
+    string title = 3;
+    string description = 4;
+    string client_id = 5;
+}
+
+message DeleteClientProjectRequest {
+    string id = 1;
+}
+
+message CreateClientProjectRequest {
+    ClientProject data = 1;
+}
+
+// "Connection" pagination pattern below
+message GetClientProjectConnectionRequest {
+    string                  client_id   = 1;
+    connection.GetRequest   args        = 2;
+}
+
+message ClientProjectConnectionEdge {
+    string          cursor  = 1;
+    ClientProject   node    = 2;
+}
+
+message ClientProjectConnectionResponse {
+    repeated ClientProjectConnectionEdge    edges = 1;
+    connection.PageInfo                     pageInfo = 2;
+}
+
+// Service:
+service ClientProjectService {
+    rpc CreateClientProject (CreateClientProjectRequest) returns (ClientProject);
+    rpc DeleteClientProject (DeleteClientProjectRequest) returns (ClientProject);
+    rpc GetClientProjectConnection (GetClientProjectConnectionRequest) returns (ClientProjectConnectionResponse);
+}

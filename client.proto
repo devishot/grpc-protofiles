@@ -1,0 +1,47 @@
+syntax = "proto3";
+package api;
+
+import "connection.proto";
+
+message Client {
+    string id = 1;
+    int64  timestamp = 2;
+    string firstName = 3;
+    string lastName = 4;
+    string companyName = 5;
+}
+
+message CreateClientRequest {
+    Client data = 1;
+}
+
+message DeleteClientRequest {
+    string id = 1;
+}
+
+message GetClientRequest {
+    string id = 1;
+}
+
+// Connection:
+message GetClientConnectionRequest {
+    connection.GetRequest args = 1;
+}
+
+message ClientConnectionEdge {
+    string cursor = 1;
+    Client node = 2;
+}
+
+message ClientConnectionResponse {
+    repeated ClientConnectionEdge   edges = 1;
+    connection.PageInfo             pageInfo = 2;
+}
+
+// Service:
+service ClientService {
+    rpc CreateClient        (CreateClientRequest) returns (Client);
+    rpc DeleteClient        (DeleteClientRequest) returns (Client);
+    rpc GetClient           (GetClientRequest) returns (Client);
+    rpc GetClientConnection (GetClientConnectionRequest) returns (ClientConnectionResponse);
+}

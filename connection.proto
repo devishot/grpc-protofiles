@@ -1,0 +1,24 @@
+syntax = "proto3";
+package connection;
+
+message GetRequest {
+    oneof perPage {
+        int32  first = 1;
+        int32  last = 3;
+    }
+    oneof previousCursor {
+        string after = 2;
+        string before = 4;
+    }
+}
+
+message PageInfo {
+    oneof hasOtherPage {
+        bool    hasNextPage = 1;
+        bool    hasPreviousPage = 3;
+    }
+    oneof initialCursor {
+        string  startCursor = 2;
+        string  endCursor = 4;
+    }
+}
