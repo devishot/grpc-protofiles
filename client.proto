@@ -25,7 +25,7 @@ message GetClientRequest {
 
 // Connection:
 message GetClientConnectionRequest {
-    connection.GetRequest args = 1;
+    ConnArgs args = 1;
 }
 
 message ClientConnectionEdge {
@@ -35,7 +35,7 @@ message ClientConnectionEdge {
 
 message ClientConnectionResponse {
     repeated ClientConnectionEdge   edges = 1;
-    connection.PageInfo             pageInfo = 2;
+    PageInfo                        pageInfo = 2;
 }
 
 // Service:

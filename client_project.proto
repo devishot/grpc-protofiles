@@ -21,8 +21,8 @@ message CreateClientProjectRequest {
 
 // "Connection" pagination pattern below
 message GetClientProjectConnectionRequest {
-    string                  client_id   = 1;
-    connection.GetRequest   args        = 2;
+    string   client_id   = 1;
+    ConnArgs args = 2;
 }
 
 message ClientProjectConnectionEdge {
@@ -32,7 +32,7 @@ message ClientProjectConnectionEdge {
 
 message ClientProjectConnectionResponse {
     repeated ClientProjectConnectionEdge    edges = 1;
-    connection.PageInfo                     pageInfo = 2;
+    PageInfo                                pageInfo = 2;
 }
 
 // Service:

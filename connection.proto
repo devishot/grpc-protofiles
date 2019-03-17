@@ -1,7 +1,7 @@
 syntax = "proto3";
-package connection;
+package api;
 
-message GetRequest {
+message ConnArgs {
     oneof perPage {
         int32  first = 1;
         int32  last = 3;
@@ -13,12 +13,8 @@ message GetRequest {
 }
 
 message PageInfo {
-    oneof hasOtherPage {
-        bool    hasNextPage = 1;
-        bool    hasPreviousPage = 3;
-    }
-    oneof initialCursor {
-        string  startCursor = 2;
-        string  endCursor = 4;
-    }
+    bool    hasNextPage = 1;
+    bool    hasPreviousPage = 3;
+    string  startCursor = 2;
+    string  endCursor = 4;
 }
