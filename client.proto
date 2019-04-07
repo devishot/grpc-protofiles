@@ -40,8 +40,8 @@ message ClientConnectionResponse {
 
 // Service:
 service ClientService {
-    rpc CreateClient        (CreateClientRequest) returns (Client);
-    rpc DeleteClient        (DeleteClientRequest) returns (Client);
-    rpc GetClient           (GetClientRequest) returns (Client);
-    rpc GetClientConnection (GetClientConnectionRequest) returns (ClientConnectionResponse);
+    rpc CreateClient        (CreateClientRequest)           returns (Client);
+    rpc DeleteClient        (DeleteClientRequest)           returns (Client);
+    rpc GetClient           (GetClientRequest)              returns (Client);
+    rpc GetClientConnection (GetClientConnectionRequest)    returns (ClientConnectionResponse);
 }

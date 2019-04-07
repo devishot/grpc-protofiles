@@ -19,6 +19,10 @@ message CreateClientProjectRequest {
     ClientProject data = 1;
 }
 
+message GetClientProjectRequest {
+    string id = 1;
+}
+
 // "Connection" pagination pattern below
 message GetClientProjectConnectionRequest {
     string   client_id   = 1;
@@ -37,7 +41,8 @@ message ClientProjectConnectionResponse {
 
 // Service:
 service ClientProjectService {
-    rpc CreateClientProject (CreateClientProjectRequest) returns (ClientProject);
-    rpc DeleteClientProject (DeleteClientProjectRequest) returns (ClientProject);
-    rpc GetClientProjectConnection (GetClientProjectConnectionRequest) returns (ClientProjectConnectionResponse);
+    rpc CreateClientProject         (CreateClientProjectRequest)        returns (ClientProject);
+    rpc DeleteClientProject         (DeleteClientProjectRequest)        returns (ClientProject);
+    rpc GetClientProject            (GetClientProjectRequest)           returns (ClientProject);
+    rpc GetClientProjectConnection  (GetClientProjectConnectionRequest) returns (ClientProjectConnectionResponse);
 }
